@@ -1,5 +1,8 @@
 package at.uibk.dps.nexaplantuml.models;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,5 +27,16 @@ public class PlantUml {
     transitions.forEach(transition -> transition.getDescription().forEach(s -> builder.append(s).append("\n")));
     builder.append("@enduml");
     return builder.toString();
+  }
+
+  public void createFile(String path) {
+    var file = new File(path);
+    try {
+      var writer = new FileWriter(file);
+      writer.write(getDescription());
+      writer.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }

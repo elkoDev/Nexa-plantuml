@@ -1,0 +1,15 @@
+@startuml
+[*] --> state1
+state1 : entry / Create; Delete; 
+state2 : while / Create; Delete; 
+state3 --> [*]
+state3 : entry / Create; Delete; 
+state3 : exit / Create; Delete; 
+state3 : while / Create; Delete; 
+state4 : entry / Create; Delete; 
+state4 : exit / Create; Delete; 
+state4 : while / Create; Delete; 
+state1 --> state2 : event1[] / Create; Delete; 
+state2 --> state3 : event2[] / Create; Delete; 
+state3 --> state4 : event3[var1 == 10 && var2.res == true && ] / Create; Delete; 
+@enduml
